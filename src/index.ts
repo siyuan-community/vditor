@@ -1,3 +1,4 @@
+/// <reference types="./../types" />
 import "./assets/less/index.less";
 import VditorMethod from "./method";
 import {Constants, VDITOR_VERSION} from "./ts/constants";
@@ -80,7 +81,7 @@ class Vditor extends VditorMethod {
                         document.head.removeChild(el);
                     }
                 });
-                addScript(`${mergedOptions.cdn}/dist/js/i18n/${mergedOptions.lang}.js`, i18nScriptID).then(() => {
+                addScript(`${mergedOptions.staticPath.i18n}/${mergedOptions.lang}.js`, i18nScriptID).then(() => {
                     this.init(id as HTMLElement, mergedOptions);
                 });
             }
@@ -105,7 +106,7 @@ class Vditor extends VditorMethod {
         }
         if (codeTheme) {
             this.vditor.options.preview.hljs.style = codeTheme;
-            setCodeTheme(codeTheme, this.vditor.options.cdn);
+            setCodeTheme(codeTheme, this.vditor.options.staticPath.highlight);
         }
     }
 
@@ -441,7 +442,7 @@ class Vditor extends VditorMethod {
         });
     }
 
-    private init(id: HTMLElement, mergedOptions: IOptions) {
+    private init(id: HTMLElement, mergedOptions: IMergedOptions) {
         this.vditor = {
             currentMode: mergedOptions.mode,
             element: id,
@@ -473,7 +474,7 @@ class Vditor extends VditorMethod {
 
         addScript(
             mergedOptions._lutePath ||
-            `${mergedOptions.cdn}/dist/js/lute/lute.min.js`,
+            mergedOptions.staticPath.lute,
             "vditorLuteScript",
         ).then(() => {
             this.vditor.lute = setLute({
@@ -508,7 +509,10 @@ class Vditor extends VditorMethod {
             }
             if (mergedOptions.icon) {
                 // 防止初始化 2 个编辑器时加载 2 次
-                addScriptSync(`${mergedOptions.cdn}/dist/js/icons/${mergedOptions.icon}.js`, "vditorIconScript");
+                addScriptSync(
+                    `${mergedOptions.staticPath.icons}/${mergedOptions.icon}.js`,
+                    "vditorIconScript",
+                );
             }
         });
     }
