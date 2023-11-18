@@ -223,17 +223,45 @@ export class Preview {
         }
         codeRender(vditor.preview.previewElement);
         highlightRender(
-            vditor.options.preview.hljs, vditor.preview.previewElement,
+            vditor.options.preview.hljs,
+            vditor.preview.previewElement,
             vditor.options.staticPath.highlight,
         );
-        mermaidRender(vditor.preview.previewElement, vditor.options.staticPath.mermaid, vditor.options.theme);
-        markmapRender(vditor.preview.previewElement, vditor.options.staticPath.markmap, vditor.options.theme);
-        flowchartRender(vditor.preview.previewElement, vditor.options.staticPath.flowchart);
-        graphvizRender(vditor.preview.previewElement, vditor.options.staticPath.graphviz);
-        chartRender(vditor.preview.previewElement, vditor.options.staticPath.echarts, vditor.options.theme);
-        mindmapRender(vditor.preview.previewElement, vditor.options.staticPath.echarts, vditor.options.theme);
-        plantumlRender(vditor.preview.previewElement, vditor.options.staticPath.plantuml);
-        abcRender(vditor.preview.previewElement, vditor.options.staticPath.abc);
+        mermaidRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.mermaid,
+            vditor.options.theme,
+        );
+        markmapRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.markmap,
+            vditor.options.theme,
+        );
+        flowchartRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.flowchart,
+        );
+        graphvizRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.graphviz,
+        );
+        chartRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.echarts,
+            vditor.options.theme);
+        mindmapRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.echarts,
+            vditor.options.theme,
+        );
+        plantumlRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.plantuml,
+        );
+        abcRender(
+            vditor.preview.previewElement,
+            vditor.options.staticPath.abc,
+        );
         mediaRender(vditor.preview.previewElement);
         // toc render
         const editorElement = vditor.preview.element;

@@ -2,6 +2,7 @@
 
 ### 升级
 * 3.9
+  * 添加 options.preview.math.mathJaxOptions
   * 添加 hljs.langs
   * 添加 option.keydown
   * 添加 option.link 和 options.image
@@ -11,8 +12,13 @@
 
 * [open issues](https://github.com/Vanessa219/vditor/issues)
 
-### v3.9.4 / 2023-09
+### v3.9.7 / 2023-10
 
+* [tipPosition 设置在取消全屏后失效](https://github.com/Vanessa219/vditor/issues/1491) `修复缺陷`
+
+### v3.9.6 / 2023-09-26
+
+* [预览页面渲染错误](https://github.com/Vanessa219/vditor/pull/1475/files) `修复缺陷`
 * [markmap 生产环境路径错误](https://github.com/Vanessa219/vditor/issues/1467) `修复缺陷`
 * [insertValue 后光标移动到插入的字符串之后](https://github.com/Vanessa219/vditor/issues/1464) `改进功能`
 * [preview.actions 为空不渲染工具栏](https://github.com/Vanessa219/vditor/issues/1453) `改进功能`
