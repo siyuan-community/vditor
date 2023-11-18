@@ -8,7 +8,7 @@
 const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const {CleanWebpackPlugin} = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const BundleAnalyzerPlugin = require(
@@ -45,22 +45,27 @@ SOFTWARE.
 module.exports = [
   {
     mode: 'production',
+    devtool: "inline-source-map",
+    experiments: {
+      outputModule: true,
+    },
     output: {
       filename: '[name].js',
       path: path.resolve(__dirname, 'dist'),
       // chunkFilename: '[name].bundle.js',
       // publicPath: `${pkg.cdn}/vditor@${pkg.version}/dist/`,
-      libraryTarget: 'umd',
-      library: 'Vditor',
-      libraryExport: 'default',
-      globalObject: 'this',
+      // libraryTarget: 'umd',
+      // library: 'Vditor',
+      // libraryExport: 'default',
+      // globalObject: 'this',
+      libraryTarget: 'module',
     },
     entry: {
       'index.min': './src/index.ts',
       'method.min': './src/method.ts',
     },
     optimization: {
-      minimize: true,
+      minimize: false,
       minimizer: [
         new TerserPlugin({
           include: ['index.min.js', 'method.min.js'],
