@@ -1,10 +1,10 @@
 {
-  "name": "vditor",
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@siyuan-community/vditor",
   "version": "3.9.5",
   "description": "♏ 易于使用的 Markdown 编辑器，为适配不同的应用场景而生",
   "author": "Vanessa <v@b3log.org> (http://vanessa.b3log.org)",
   "homepage": "https://b3log.org/vditor",
-  "jsdelivr": "dist/index.min.js",
   "main": "dist/index.min.js",
   "funding": "https://ld246.com/sponsor",
   "files": [
@@ -57,16 +57,22 @@
     "webpack-dev-server": "^4.1.0"
   },
   "license": "MIT",
-  "repository": "git://github.com/Vanessa219/vditor.git",
+  "repository": "git://github.com/siyuan-community/vditor.git",
   "bugs": {
-    "url": "https://github.com/Vanessa219/vditor/issues"
+    "url": "https://github.com/siyuan-community/vditor/issues"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "lint": "eslint --fix --ext src/**/*.ts",
     "test:watch": "jest --watch",
     "test": "jest --coverage",
     "start": "webpack serve --config webpack.start.js",
-    "build": "webpack"
+    "build": "webpack",
+    "publish:npm": "npm run build && npm publish"
   },
   "keywords": [
     "editor",
